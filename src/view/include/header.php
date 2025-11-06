@@ -324,23 +324,11 @@
                                         <a href="<?php echo BASE_URL ?>usuarios" class="dropdown-item">
                                             <i class="fas fa-users mr-2"></i>Usuarios
                                         </a>
-                                        <a href="<?php echo BASE_URL ?>estudiantes" class="dropdown-item">
-                                            <i class="fas fa-user-graduate mr-2"></i>Estudiantes
-                                        </a>
-                                        <a href="<?php echo BASE_URL ?>programas" class="dropdown-item">
-                                            <i class="fas fa-book mr-2"></i>Programas
-                                        </a>
-                                        <a href="<?php echo BASE_URL ?>semestres" class="dropdown-item">
-                                            <i class="fas fa-calendar-alt mr-2"></i>Semestres
-                                        </a>
+                                       
                                         <a href="<?php echo BASE_URL ?>token" class="dropdown-item">
                                             <i class="fas fa-calendar-alt mr-2"></i>Tokens
                                         </a>
-                                        <a href="<?php echo BASE_URL ?>clientes" class="dropdown-item">
-                                            <i class="fas fa-calendar-alt mr-2"></i>Clientes
-                                        <a href="<?php echo BASE_URL ?>apiestudiante" class="dropdown-item">
-                                            <i class="fas fa-calendar-alt mr-2"></i>A P I
-                                        </a>
+                                        
                                     </div>
                                 </li>
                             </ul>
