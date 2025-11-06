@@ -50,6 +50,7 @@
     <script src="<?php echo BASE_URL ?>src/view/pp/assets/js/theme.js"></script>
     <script src="<?php echo BASE_URL ?>src/view/js/sesion.js"></script>
 
+    <script src="<?php echo BASE_URL ?>src/view/js/functions_estudiante.js"></script>
 
     <style>
         /* ===== ESTILOS MINIMALISTAS PARA FOOTER ===== */

@@ -32,16 +32,133 @@
                         <span class="text-muted small">Total</span>
                     </div>
                 </div>
-                <h5 class="card-title text-muted mb-2">Tokens</h5>
-                <h2 class="card-value mb-3">48</h2>
-                <a href="<?php echo BASE_URL ?>token" class="btn btn-outline-primary btn-sm btn-block">
+                <h5 class="card-title text-muted mb-2">Estudiantes</h5>
+                <h2 class="card-value mb-3">1,248</h2>
+                <a href="<?php echo BASE_URL ?>estudiantes" class="btn btn-outline-primary btn-sm btn-block">
                     <i class="fas fa-eye mr-1"></i>Ver Detalles
                 </a>
             </div>
         </div>
     </div>
 
-    
+    <!-- Tarjeta de Programas -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card dashboard-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="card-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="card-info text-right">
+                        <span class="text-muted small">Total</span>
+                    </div>
+                </div>
+                <h5 class="card-title text-muted mb-2">Programas de Estudio</h5>
+                <h2 class="card-value mb-3">5</h2>
+                <a href="<?php echo BASE_URL ?>programas" class="btn btn-outline-primary btn-sm btn-block">
+                    <i class="fas fa-eye mr-1"></i>Ver Detalles
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tarjeta de Semestres -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card dashboard-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-info text-right">
+                        <span class="text-muted small">Total</span>
+                    </div>
+                </div>
+                <h5 class="card-title text-muted mb-2">Semestres</h5>
+                <h2 class="card-value mb-3">6</h2>
+                <a href="<?php echo BASE_URL ?>semestres" class="btn btn-outline-primary btn-sm btn-block">
+                    <i class="fas fa-eye mr-1"></i>Ver Detalles
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de Accesos Rápidos -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title mb-4">Accesos Rápidos</h5>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="<?php echo BASE_URL ?>usuarios" class="quick-access-link">
+                            <div class="quick-access-item text-center p-3">
+                                <i class="fas fa-users fa-2x mb-2"></i>
+                                <h6>Gestión de Usuarios</h6>
+                                <small class="text-muted">Administrar usuarios del sistema</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="<?php echo BASE_URL ?>estudiantes" class="quick-access-link">
+                            <div class="quick-access-item text-center p-3">
+                                <i class="fas fa-user-graduate fa-2x mb-2"></i>
+                                <h6>Registro Estudiantil</h6>
+                                <small class="text-muted">Gestionar estudiantes</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="<?php echo BASE_URL ?>programas" class="quick-access-link">
+                            <div class="quick-access-item text-center p-3">
+                                <i class="fas fa-book fa-2x mb-2"></i>
+                                <h6>Programas Académicos</h6>
+                                <small class="text-muted">Administrar programas</small>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="<?php echo BASE_URL ?>semestres" class="quick-access-link">
+                            <div class="quick-access-item text-center p-3">
+                                <i class="fas fa-calendar-alt fa-2x mb-2"></i>
+                                <h6>Periodos Académicos</h6>
+                                <small class="text-muted">Gestionar semestres</small>
+                            </div>
+                        </a>
+                    </div>
+                       <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="<?php echo BASE_URL ?>token" class="quick-access-link">
+                            <div class="quick-access-item text-center p-3">
+                                <i class="fas fa-qrcode fa-2x"></i> 
+                                <h6>Token de cliente</h6>
+                                <small class="text-muted">Gestionar tokens</small>
+                            </div>
+                        </a>
+                    </div>
+                       <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="<?php echo BASE_URL ?>clientes" class="quick-access-link">
+                            <div class="quick-access-item text-center p-3">
+                                <i class="fas fa-headset fa-2x"></i>    
+                                <h6>clientes</h6>
+                                <small class="text-muted">Gestionar Clientes</small>
+                            </div>
+                        </a>
+                    </div>
+                       <div class="col-md-3 col-sm-6 mb-3">
+                        <a href="<?php echo BASE_URL ?>apiestudiante" class="quick-access-link">
+                            <div class="quick-access-item text-center p-3">
+                             <i class="fas fa-cloud fa-2x"></i>    
+                                <h6>Periodos Académicos</h6>
+                                <small class="text-muted">api</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style>
     /* ===== ESTILOS PARA DASHBOARD MINIMALISTA ===== */
