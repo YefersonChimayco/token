@@ -32,9 +32,9 @@
                         <span class="text-muted small">Total</span>
                     </div>
                 </div>
-                <h5 class="card-title text-muted mb-2">Estudiantes</h5>
-                <h2 class="card-value mb-3">1,248</h2>
-                <a href="<?php echo BASE_URL ?>estudiantes" class="btn btn-outline-primary btn-sm btn-block">
+                <h5 class="card-title text-muted mb-2">Tokens</h5>
+                <h2 class="card-value mb-3">48</h2>
+                <a href="<?php echo BASE_URL ?>token" class="btn btn-outline-primary btn-sm btn-block">
                     <i class="fas fa-eye mr-1"></i>Ver Detalles
                 </a>
             </div>
