@@ -265,17 +265,7 @@
                     <!-- MENÚ SUPERIOR DERECHO - MINIMALISTA -->
                     <div class="d-flex align-items-center">
                         <!-- Selector de Institución -->
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item waves-effect waves-light"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-university mr-1"></i>
-                                <span class="d-none d-sm-inline-block ml-1" id="menu_ies">IES Huanta</span>
-                                <i class="fas fa-chevron-down d-none d-sm-inline-block ml-1"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right" id="contenido_menu_ies">
-                                <!-- Opciones de institución -->
-                            </div>
-                        </div>
+                        
 
                         <!-- Perfil de Usuario -->
                         <div class="dropdown d-inline-block ml-2">
