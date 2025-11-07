@@ -229,6 +229,7 @@
     </style>
 
     <script>
+        const ruta_api = '<?php echo RUTA_API; ?>';
         const base_url = '<?php echo BASE_URL; ?>';
         const base_url_server = '<?php echo BASE_URL_SERVER; ?>';
         const session_session = '<?php echo $_SESSION['sesion_id']; ?>';

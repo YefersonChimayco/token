@@ -11,4 +11,6 @@ const BD_CHARSET = 'utf8';
 const BASE_URL = 'http://localhost/token/';
 const BASE_URL_SERVER = 'http://localhost/token/';
 
+const RUTA_API = 'http://localhost/sire2/';
+
 ?>
