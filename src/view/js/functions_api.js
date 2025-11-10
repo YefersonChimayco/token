@@ -1,4 +1,7 @@
-// functions_api.js - CORREGIDO (sin alertas innecesarias)
+// functions_api.js - MODIFICADO para consumir SIRE2
+
+// URL del API de SIRE2 - REEMPLAZA la URL local por SIRE2
+const API_URL = API_SIRE2; // Usa la constante definida en la vista
 
 function mostrarResultadosEnTabla(data) {
     const cuerpoTabla = document.getElementById('cuerpoTabla');
@@ -10,7 +13,7 @@ function mostrarResultadosEnTabla(data) {
             <tr>
                 <td colspan="6" class="text-center text-muted py-5">
                     <i class="fas fa-search fa-3x mb-3"></i>
-                    <h5>No se encontraron estudiantes</h5>
+                    <h5>No se encontraron estudiantes en SIRE2</h5>
                     <p class="text-muted">Intente con otros criterios de búsqueda</p>
                 </td>
             </tr>
@@ -51,10 +54,11 @@ function mostrarResultadosEnTabla(data) {
     });
 
     cuerpoTabla.innerHTML = html;
-    contadorResultados.textContent = `${data.data.length} estudiante(s) encontrado(s)`;
+    contadorResultados.textContent = `${data.data.length} estudiante(s) encontrado(s) en SIRE2`;
     controlesResultados.style.display = 'flex';
 }
 
+// MODIFICADO: Consume del API de SIRE2
 function ejecutarBusqueda() {
     const dni = document.getElementById('dni').value;
     const nombres = document.getElementById('nombres').value;
@@ -71,7 +75,8 @@ function ejecutarBusqueda() {
     formData.append('pagina', pagina);
     formData.append('limite', limite);
 
-    fetch(`${base_url_server}src/control/ApiController.php?tipo=buscar_estudiantes`, {
+    // MODIFICADO: Consume de SIRE2 en lugar de local
+    fetch(API_URL + '?tipo=buscar_estudiantes', {
         method: 'POST',
         body: formData
     })
@@ -85,26 +90,24 @@ function ejecutarBusqueda() {
                 actualizarPaginacion(data.paginacion);
             }
         } else {
-            // Solo mostrar error si hay un problema real, no cuando no hay resultados
             if (data.error && !data.error.includes('no encontrado')) {
-                console.error('Error del servidor:', data.error);
+                console.error('Error del servidor SIRE2:', data.error);
             }
             mostrarResultadosEnTabla({status: false});
         }
     })
     .catch(error => {
         document.getElementById('loadingSpinner').style.display = 'none';
-        console.error('Error de red:', error);
-        // No mostrar alerta, solo en consola
+        console.error('Error de conexión con SIRE2:', error);
         mostrarResultadosEnTabla({status: false});
     });
 }
 
+// MODIFICADO: Consume del API de SIRE2
 function buscarPorDNI() {
     const dni = document.getElementById('dni').value;
     
     if (!dni) {
-        // Solo mostrar mensaje si no hay DNI, no alerta
         mostrarResultadosEnTabla({
             status: false,
             data: []
@@ -119,7 +122,8 @@ function buscarPorDNI() {
     const formData = new FormData();
     formData.append('dni', dni);
 
-    fetch(`${base_url_server}src/control/ApiController.php?tipo=buscar_estudiante_dni`, {
+    // MODIFICADO: Consume de SIRE2 en lugar de local
+    fetch(API_URL + '?tipo=buscar_estudiante_dni', {
         method: 'POST',
         body: formData
     })
@@ -141,18 +145,17 @@ function buscarPorDNI() {
                 total_paginas: 1
             });
         } else {
-            // No mostrar alerta, solo mostrar tabla vacía
             mostrarResultadosEnTabla({status: false});
         }
     })
     .catch(error => {
         document.getElementById('loadingSpinner').style.display = 'none';
-        console.error('Error de red:', error);
-        // No mostrar alerta, solo en consola
+        console.error('Error de conexión con SIRE2:', error);
         mostrarResultadosEnTabla({status: false});
     });
 }
 
+// Las demás funciones se mantienen igual
 function actualizarPaginacion(paginacion) {
     const textoPaginacion = document.getElementById('texto_paginacion_tabla');
     const listaPaginacion = document.getElementById('lista_paginacion_tabla');
@@ -219,7 +222,7 @@ function limpiarFiltros() {
             <td colspan="6" class="text-center text-muted py-5">
                 <i class="fas fa-search fa-3x mb-3"></i>
                 <h5>Realice una búsqueda para ver los resultados</h5>
-                <p class="text-muted">Use los filtros arriba para buscar estudiantes</p>
+                <p class="text-muted">Los datos se consumen directamente de SIRE2</p>
             </td>
         </tr>
     `;
@@ -232,11 +235,9 @@ function limpiarFiltros() {
 
 // Funciones de exportación (opcionales)
 function exportarJSON() {
-    // Tu código existente para exportar
-    console.log('Exportar JSON');
+    console.log('Exportar JSON desde TOKEN');
 }
 
 function mostrarJSON() {
-    // Tu código existente para mostrar JSON
-    console.log('Mostrar JSON');
+    console.log('Mostrar JSON desde TOKEN');
 }

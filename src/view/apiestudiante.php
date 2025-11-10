@@ -1,7 +1,6 @@
 <?php
 /**
- * apiestudiante.php - Vista para API de Estudiantes
- * Versión minimalista con solo dependencias necesarias
+ * apiestudiante.php - Vista TOKEN que consume SIRE2
  */
 ?>
 
@@ -9,63 +8,41 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>API Estudiantes - SIRE</title>
+    <title>API Estudiantes - TOKEN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <!-- Solo dependencias esenciales -->
-    <link href="<?php echo BASE_URL ?>src/view/pp/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL ?>src/view/pp/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="<?php echo BASE_URL ?>src/view/pp/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo BASE_URL ?>src/view/pp/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
     
     <style>
-        /* Estilos mínimos necesarios */
-        body {
-            background-color: #f8f9fa;
-            padding: 20px 0;
-        }
-        .card {
-            margin-bottom: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-        .loading-spinner {
-            display: none;
-            text-align: center;
-            padding: 20px;
-        }
-        .table-responsive {
-            margin-top: 20px;
-        }
+        body { background-color: #f8f9fa; padding: 20px 0; }
+        .card { margin-bottom: 20px; border-radius: 8px; }
+        .loading-spinner { display: none; text-align: center; padding: 20px; }
     </style>
 
     <script>
         const base_url = '<?php echo BASE_URL; ?>';
         const base_url_server = '<?php echo BASE_URL_SERVER; ?>';
-        <?php if(isset($_SESSION['sesion_id'])): ?>
-        const session_session = '<?php echo $_SESSION['sesion_id']; ?>';
-        const token_token = '<?php echo $_SESSION['sesion_token']; ?>';
-        <?php else: ?>
-        const session_session = '';
-        const token_token = '';
-        <?php endif; ?>
+        const RUTA_API_SIRE2 = '<?php echo RUTA_API; ?>';
+        
+        // URL del API de SIRE2 que vamos a consumir
+        const API_SIRE2 = RUTA_API_SIRE2 + 'src/control/ApiController.php';
     </script>
 </head>
 
 <body>
-
     <div class="container-fluid">
-
         <!-- Card de Información -->
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-3">
-                    <i class="fas fa-api mr-2"></i>API de Estudiantes
+                    <i class="fas fa-api mr-2"></i>API de Estudiantes - TOKEN
                 </h4>
                 
                 <div class="alert alert-info">
                     <i class="fas fa-info-circle mr-2"></i>
-                    <strong>Token automático:</strong> El sistema usa autenticación automática. 
-                    Puede comenzar a buscar estudiantes inmediatamente.
+                    <strong>Consumiendo de SIRE2:</strong> <?php echo RUTA_API; ?>
                 </div>
             </div>
         </div>
@@ -167,7 +144,7 @@
                     <div class="spinner-border text-primary" role="status">
                         <span class="sr-only">Cargando...</span>
                     </div>
-                    <p class="mt-2 text-muted">Buscando estudiantes...</p>
+                    <p class="mt-2 text-muted">Buscando estudiantes en SIRE2...</p>
                 </div>
 
                 <!-- Controles de exportación -->
@@ -201,7 +178,7 @@
                                 <td colspan="6" class="text-center text-muted py-5">
                                     <i class="fas fa-search fa-3x mb-3"></i>
                                     <h5>Realice una búsqueda para ver los resultados</h5>
-                                    <p class="text-muted">Use los filtros arriba para buscar estudiantes</p>
+                                    <p class="text-muted">Los datos se consumen directamente de SIRE2</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -223,23 +200,21 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- Solo scripts esenciales -->
+    <!-- Scripts -->
     <script src="<?php echo BASE_URL ?>src/view/pp/assets/js/jquery.min.js"></script>
     <script src="<?php echo BASE_URL ?>src/view/pp/assets/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo BASE_URL ?>src/view/pp/plugins/sweetalert2/sweetalert2.min.js"></script>
     
-    <!-- Script de la API -->
+    <!-- Mismo JS pero modificado para consumir SIRE2 -->
     <script src="<?php echo BASE_URL ?>src/view/js/functions_api.js"></script>
 
     <script>
     // Inicialización
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('✅ API Estudiantes cargada - Versión minimalista');
+        console.log('✅ TOKEN API cargada - Consumiendo de SIRE2:', RUTA_API_SIRE2);
     });
     </script>
-
 </body>
 </html>
