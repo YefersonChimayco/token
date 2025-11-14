@@ -26,6 +26,12 @@ class TokenController {
     public function handleRequest() {
         $tipo = $_GET['tipo'] ?? '';
         
+        // ========== NUEVO: Endpoint público para obtener token ==========
+        if ($tipo === "obtener_token_publico") {
+            $this->obtenerTokenPublico();
+            return;
+        }
+        
         $id_sesion = $_POST['sesion'] ?? '';
         $token_sesion = $_POST['token_sesion'] ?? '';
         
@@ -45,6 +51,33 @@ class TokenController {
         }
     }
     
+    // ========== NUEVO MÉTODO: Obtener token sin autenticación ==========
+    private function obtenerTokenPublico() {
+        try {
+            $token = $this->objToken->obtenerToken();
+            
+            if ($token && !empty($token->token)) {
+                $this->jsonResponse([
+                    'status' => true,
+                    'token' => $token->token,
+                    'mensaje' => 'Token obtenido correctamente'
+                ]);
+            } else {
+                $this->jsonResponse([
+                    'status' => false, 
+                    'msg' => 'No se encontró token configurado'
+                ]);
+            }
+            
+        } catch (Exception $e) {
+            $this->jsonResponse([
+                'status' => false, 
+                'msg' => 'Error interno del servidor'
+            ]);
+        }
+    }
+    
+    // ========== MÉTODOS EXISTENTES ==========
     private function obtenerToken() {
         try {
             $token = $this->objToken->obtenerToken();
