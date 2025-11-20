@@ -155,9 +155,7 @@ function mostrarErrorToken(mensaje, errorCORS = false, errorDetalle = '') {
                         <button class="btn btn-primary btn-sm mr-2" onclick="probarConexionManual()">
                             <i class="fas fa-plug mr-1"></i> Probar Conexión Manual
                         </button>
-                        <button class="btn btn-outline-secondary btn-sm" onclick="irAModuloTokens()">
-                            <i class="fas fa-cog mr-1"></i> Configurar Token Local
-                        </button>
+                        
                     </div>
                   </div>`,
             confirmButtonText: 'Entendido',
@@ -320,7 +318,6 @@ async function buscarPorDNI() {
     }
 }
 
-// ========== RESTANTE DEL CÓDIGO (SIN CAMBIOS) ==========
 async function mostrarConfirmacionTokenValido(validacion) {
     const confirmacionMostrada = sessionStorage.getItem('confirmacion_token_mostrada');
     if (!confirmacionMostrada) {
