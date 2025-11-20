@@ -170,9 +170,7 @@ function mostrarErrorToken(mensaje, errorCORS = false, errorDetalle = '') {
                     <p class="mb-2">${mensaje}</p>
                     ${errorDetalle ? `<small class="text-muted"><strong>Detalle:</strong> ${errorDetalle}</small>` : ''}
                     <div class="mt-3">
-                        <button class="btn btn-primary btn-sm" onclick="irAModuloTokens()">
-                            <i class="fas fa-key mr-1"></i> Configurar Token
-                        </button>
+                       
                     </div>
                   </div>`,
             confirmButtonText: 'Entendido',
